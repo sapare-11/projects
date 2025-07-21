@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Js Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #1e2a78;
+            text-shadow: 0 1px 3px rgba(102, 166, 255, 0.6);
+            margin-bottom: 25px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            user-select: none;
+        }
+
+        form#blood_form {
+            background-color: #fff;
+            padding: 30px 35px;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            width: 350px;
+            transition: box-shadow 0.3s ease;
+        }
+        form#blood_form:hover {
+            box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 15px;
+            color: #1e2a78;
+            text-shadow: 0 1px 2px rgba(102, 166, 255, 0.4);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            border: 2px solid #66a6ff;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(102, 166, 255, 0.15);
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #1e2a78;
+            box-shadow: 0 0 8px #1e2a78;
+            background-color: #f0f8ff;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 14px 0;
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(90deg, #4e54c8, #8f94fb);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(78, 84, 200, 0.6);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+            background: linear-gradient(90deg, #3a3fc1, #7c82f5);
+            box-shadow: 0 8px 16px rgba(60, 66, 193, 0.8);
+        }
+
+        #results {
+            margin-top: 18px;
+            font-weight: 700;
+            font-size: 1.2em;
+            min-height: 28px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blood Donation Eligibility Testing</h1>
+
+    <form action="" id="blood_form">
+        <label for="age">Age</label>
+        <input type="number" id="age" required>
+
+        <label for="bld_cnt">Blood</label>
+        <input type="number" id="bld_cnt" required>
+
+        <label for="hemo">Hemoglobin</label>
+        <input type="number" id="hemo" required>
+
+        <label for="sugar">Blood Sugar</label>
+        <input type="number" id="sugar" required>
+
+        <input type="button" value="Check eligibility" id="check_eligibility">
+
+        <div class="results" id="results"></div>
+    </form>  
+
+    <script>
+        document.getElementById("check_eligibility").addEventListener("click",
+            function (event){
+                event.preventDefault();
+                let age = parseInt(document.getElementById("age").value);
+                let bld_cnt = parseInt(document.getElementById("bld_cnt").value);
+                let hemo = parseInt(document.getElementById("hemo").value);
+                let sugar = parseInt(document.getElementById("sugar").value);
+                let results = document.getElementById("results");
+
+                // Reset color
+                results.style.color = '#28a745'; // green for success by default
+
+                if(isNaN(age) || isNaN(bld_cnt) || isNaN(hemo) || isNaN(sugar)) {
+                    results.innerHTML = "Please fill in all fields correctly.";
+                    results.style.color = '#dc3545'; // red
+                    return;
+                }
+
+                if(age >= 18){
+                    if(bld_cnt > 100000){
+                        if(hemo > 12){
+                            if(sugar >= 80 && sugar <= 120){
+                                results.innerHTML = "You are eligible to donate";
+                            }
+                            else{
+                                results.innerHTML = "You are not eligible to donate because of abnormal blood sugar level";
+                                results.style.color = '#dc3545'; // red
+                            }
+                        }
+                        else{
+                            results.innerHTML = "You are not eligible to donate because hemoglobin is too low";
+                            results.style.color = '#dc3545'; // red
+                        }
+                    }
+                    else{
+                        results.innerHTML = "You are not eligible to donate because of low blood count";
+                        results.style.color = '#dc3545'; // red
+                    }
+                }
+                else{
+                    results.innerHTML = "You are not eligible to donate because of age";
+                    results.style.color = '#dc3545'; // red
+                }
+            }
+        );
+    </script>
+</body>
+</html>

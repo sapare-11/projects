@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return validate(event)">
+        <label for="name">Enter Name</label><br>
+        <input type="text" id="name"><br>
+        <span id="err" style ="color:rgb(198, 28, 28)"></span><br>
+         <label for="email">Email</label><br>
+        <input type="text" id="email"><br><br>
+        <span id="err" style ="color:rgb(198, 28, 28)"></span><br>
+        <button type="submit">Submit</button>
+
+    </form>
+    <script>
+        function validate(event){
+            event.preventDefault();
+            let name=document.getElementById("name").value;
+            let email=document.getElementById("email").value;
+
+            if (name===""){
+               document.getElementById("err").innerHTML="Enter a name";
+               
+               return false;
+
+            }
+            if (email===""){
+               document.getElementById("err").innerHTML="Enter a email";
+               return false;
+            }else
+                document.getElementById("err").innerHTML="";
+                alert("Form submitted succesfully!")
+                return ture;
+        }
+            
+        
+
+        
+    </script>
+</body>
+</html>

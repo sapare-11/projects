@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: antiquewhite;
+            margin: 0;
+            padding:20px;
+
+        }
+        header{
+            background-color: aquamarine;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+         h1{
+            text-align: center;
+            font-size: 24px;
+
+            
+        }
+        nav{
+            margin-bottom: 24px;
+        }
+        form{
+            text-align: center;
+            size-adjust: auto;
+            background-color:blanchedalmond;
+ 
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Demo</title>
+</head>
+<body>
+    <h1>Blood Donation Form</h1>
+    <form action="" id="blood_form">
+        <label for="">Age</label><br>
+        <input type="number" name="" id="age" required><br>
+        <label for="">Blood</label><br>
+        <input type="number" name="" id="bld_cnt" required><br>
+        <label for="">Hemoglobin</label><br>
+        <input type="number" name="" id="hemo" required><br>
+        <label for="">Blood Sugar</label><br>
+        <input type="number" name="" id="sugar" required><br>
+        <input type="button" value="Check eligibility" id="check eligibility"><br>
+        <div class="results" id="results"></div>
+    </form>  
+    <div class="result"></div>
+    <script>
+     document.getElementById("blood_form").addEventListener("click",
+         function (){
+         event.preventDefault();
+        let age=parseInt(document.getElementById("age").value);
+        let bld_cnt=parseInt(document.getElementById("bld_cnt").value);
+        let hemo=parseInt(document.getElementById("hemo").value);
+        let sugar=parseInt(document.getElementById("sugar").value);
+        let results=document.getElementById("results");
+        if(age>=18){
+            if(bld_cnt>100000){
+                if(hemo>12){
+                    if(sugar>=80 && sugar<=120){
+                        results.innerHTML="You are eligible to donate";
+
+                    }
+                    else{
+                        results.innerHTML="You not are eligible to donate because of blood count";
+                    }
+                }
+                else{
+                    results.innerHTML="You not are eligible to donate because of hemoglobin less";
+                }
+            }
+            else{
+                results.innerHTML="You not are eligible to donate because of blood count";
+            }
+            }
+        else{
+            results.innerHTML="You not are eligible to donate because Age";
+        }
+    }
+       
+    
+);
+    </script>
+
+</body>
+</html>

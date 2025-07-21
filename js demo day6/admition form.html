@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>College Admission Form</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://image-static.collegedunia.com/public/reviewPhotos/1063196/1000080083.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    color: #333;
+  }
+  form#admission_form {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 35px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(38, 56, 115, 0.25);
+  }
+  .logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 120px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(38, 56, 115, 0.3);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2a1a8c;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    text-shadow: 0 1px 3px rgba(101, 93, 183, 0.7);
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #444;
+    font-size: 14.5px;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 2px solid #8a8a8a;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="tel"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #4e54c8;
+    box-shadow: 0 0 8px #4e54c8;
+  }
+  input[type="file"] {
+    margin-bottom: 20px;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+  .form-row {
+    margin-bottom: 15px;
+  }
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  .checkbox-container label {
+    font-weight: 600;
+    color: #2a1a8c;
+  }
+  input[type="submit"] {
+    width: 100%;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 14px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(78, 84, 200, 0.7);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  input[type="submit"]:hover {
+    background: linear-gradient(90deg, #3a3fc1, #7c82f5);
+    box-shadow: 0 8px 18px rgba(60, 66, 193, 0.9);
+  }
+</style>
+</head>
+<body>
+
+<form id="admission_form" action="#" method="post" enctype="multipart/form-data">
+  <img src="https://upload.wikimedia.org/wikipedia/en/4/49/Srinivasa_Ramanujan_Institute_of_Technology_logo.png" alt="College Logo" class="logo" />
+  <h2>College Admission Form</h2>
+
+  <div class="form-row">
+    <label for="firstname">First Name *</label>
+    <input type="text" id="firstname" name="firstname" required />
+  </div>
+
+  <div class="form-row">
+    <label for="lastname">Last Name *</label>
+    <input type="text" id="lastname" name="lastname" required />
+  </div>
+
+  <div class="form-row">
+    <label for="fathername">Father's Name *</label>
+    <input type="text" id="fathername" name="fathername" required />
+  </div>
+
+  <div class="form-row">
+    <label for="marks">Inter/Diploma Marks (%) *</label>
+    <input type="number" id="marks" name="marks" min="0" max="100" step="0.01" required />
+  </div>
+
+  <div class="form-row">
+    <label for="course">Course *</label>
+    <select id="course" name="course" required>
+      <option value="" disabled selected>Select course</option>
+      <option value="engineering">Engineering</option>
+      <option value="management">Management</option>
+      <option value="science">Science</option>
+      <option value="arts">Arts</option>
+      <option value="diploma">Diploma</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="hostel">Hostel Accommodation *</label>
+    <select id="hostel" name="hostel" required>
+      <option value="" disabled selected>Select option</option>
+      <option value="hostel">Hostel</option>
+      <option value="without">Without Hostel</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="participation">Any Participation in Events/Activities</label>
+    <textarea id="participation" name="participation" placeholder="Mention any extracurricular participation..."></textarea>
+  </div>
+
+  <div class="form-row">
+    <label for="mobile">Mobile Number *</label>
+    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="10-digit number" required />
+  </div>
+
+  <div class="form-row">
+    <label for="image">Upload Your Image *</label>
+    <input type="file" id="image" name="image" accept="image/*" required />
+  </div>
+
+  <div class="form-row">
+    <label for="tenth">10th Marksheet (Upload) *</label>
+    <input type="file" id="tenth" name="tenth" accept=".pdf,.jpg,.jpeg,.png" required />
+  </div>
+
+  <div class="form-row">
+    <label for="interdiploma">Inter/Diploma Marksheet (Upload) *</label>
+    <input type="file" id="interdiploma" name="interdiploma" accept=".pdf,.jpg,.jpeg,.png" required />
+  </div>
+
+  <div class="form-row">
+    <label for="certificates">Other Certificates (Upload)</label>
+    <input type="file" id="certificates" name="certificates" accept=".pdf,.jpg,.jpeg,.png" multiple />
+  </div>
+
+  <div class="checkbox-container">
+    <input type="checkbox" id="terms" name="terms" required />
+    <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a> *</label>
+  </div>
+
+  <input type="submit" value="Apply" />
+</form>
+
+</body>
