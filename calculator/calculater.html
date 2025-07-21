@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .calculater{
+            width: 300px;
+            height: 450px;
+            background-color: aqua;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculater">
+    <!-- <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <input type="button" value="4">
+    <input type="button" value="5">
+    <input type="button" value="6">
+    <input type="button" value="7">
+    <input type="button" value="8">
+    <input type="button" value="9"> -->
+    <h2>Simple Calculater</h2>
+    <input type="number" name="" id="num1" placeholder="Enter num1" > 
+    <input type="number" name="" id="num2" placeholder="Enter num2" >
+<select name="" id="operator" >
+    <option value="select" selected disabled>Select</option>
+    <option value="+">Addition(+)</option>
+    <option value="-">Subtraction(-)</option>
+    <option value="*">Mul(*)</option>
+    <option value="/">Div(/)</option>
+    </select>
+    <button onclick="calculate()">Calculate</button>
+    <div id="results"></div>
+    </div>
+    <script>
+        function calculate(){
+            let n1 =parseInt(document.getElementById("num1").value);
+            let n2= parseInt(document.getElementById("num2").value);
+            const operator=document.getElementById("operator").value;
+            let result;
+            if(isNaN(n1)||isNaN(n2)){
+                result="Please enter valid number"
+            }  
+            else if (operator==='+')
+            {
+                result=n1+n2;
+
+            } else if(operator==="-"){
+                result=n1-n2;
+
+            }else if(operator==='*'){
+                result=n1*n2;
+            }else if(operator==='/'){
+                result=n1/n2;
+            }else
+            result="Please select valid operator"
+        
+            document.getElementById("results").innerText="Result:"+result;
+             }    </script>
+
+<!-- create a scientific calculator
+ app:currency converter/temp/area/distance
+ app: calorie meter user give food item give the calories of that food
+ -->
+</body>
+</html>

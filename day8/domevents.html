@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 400px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="https://tse2.mm.bing.net/th/id/OIP.RCxSxGbzQuMmxiXMu4f1pwHaE7?pid=Api&P=0&h=180" alt="" id="football"> -->
+    <!-- <div class="test">
+        <a href=""class="a">link</a>
+        <a href=""class="a">link</a>
+        <a href=""class="a">link</a>
+        <a href=""class="a">link</a>
+    </div> 
+    <! mouse event -->
+    <button id="clickBtn">Click Me</button>
+    <div id="mouseArea">Mouse Over Me</div>
+    <img id="im" src="https://wallpapercave.com/wp/lOQ1cyl.jpg" alt="">
+    <!-- keyboard Events -->
+     <input type="text" id="keyInput" placeholder="Type Something"/>
+     <!-- form events -->
+      <form id="sampleForm">
+        <input type="text" id="username" placeholder="Enter username"/>
+        <select name="role" id="roleSelect">
+            <option value="student">Student</option><br>
+
+             <option value="student">Teacher</option><br>
+             
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+      <!-- Window Events -->
+       <p id="resizeText">Resized the window to trigger an event.</p>
+    </body>
+<script>
+   /*let a=document.getElementById("football");
+   a.addEventListener("mouseover",function(){
+        document.getElementById("football").setAttribute("src","https://tse2.mm.bing.net/th/id/OIP.71j_lmUYnx8wZCwTjy0atgHaFj?w=670&h=503&rs=1&pid=ImgDetMain&o=7&rm=3")
+    })
+    a.addEventListener("mouseout",function(){
+        document.getElementById("football").setAttribute("src","https://www.hdwallpaperspulse.com/wp-content/uploads/2013/02/Beautiful-Animal-010.jpg")
+    })*/
+    // Mouse Events
+    document.getElementById("clickBtn").addEventListener("click",function(){
+        alert("Button clicked");
+    });
+
+    document.getElementById("mouseArea").addEventListener("mouseover",function(){
+        this.style.backgroundColor="#eef";
+    });
+    document.getElementById("MouseArea").addEventListener("mouseout",function(){
+        this.style.backgroundColor="#cfc";
+    });
+
+    //Keyboard Events
+    document.getElementById("keyinput").addEventListener("keydown",function(e){
+        console.log("key down:", e.key);
+    });
+
+     document.getElementById("keyinput").addEventListener("keyup",function(e){
+        console.log("key up:", e.key);
+    });
+    //form events
+    document.getElementById("sampleForm").addEventListener("submit",function(e){
+        e.preventDefault();
+        alert("Form Submitted")
+    });
+    document.getElementById("roleSelect").addEventListener("change",function(){
+        alert("Role selected:"+this.value);
+    });
+    //Window events
+    window.addEventListener("resize", function(){
+        document.getElementById("resizeText").innerText="Window resized at:"+new Date().toLocaleDateString();
+    });
+    //DOM Loaded
+    document.addEventListener("DOMContentLoaded",function(){
+        console.log("DOM fully loaded and parsd");
+    });
+    
+    </script>
+</html>

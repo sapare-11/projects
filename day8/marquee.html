@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-image: url('https://thescottsdaleliving.com/wp-content/uploads/2023/07/restaurants-by-cuisine2-1024x1024.jpg'); /* Replace with your image URL */
+      background-size: cover; /* Or try 'contain', or '100% 100%' */
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #mo {
+      background-color: blueviolet;
+    }
+
+    #mo2 {
+      background-color: rgb(207, 138, 34);
+    }
+
+    #mo3 {
+      background-color: rgb(152, 207, 34);
+    }
+    header{
+        background-color: antiquewhite;
+        
+    }
+  </style>
+
+<body>
+<header style="text-align: center;">
+    Welcome to Spicey Taste
+</header>
+  <marquee behaviour="" direction="" id="mo">Briyani</marquee>
+  <marquee behaviour="" direction="right" id="mo2">Briyani</marquee>
+  <marquee behaviour="" direction="" id="mo2">Briyani</marquee>
+  <marquee behaviour="" direction="right" id="mo2">Briyani</marquee>
+  <marquee behaviour="" direction="" id="mo2">Briyani</marquee>
+  <marquee behaviour="" direction="right" id="mo2">Briyani</marquee>
+  <marquee behaviour="" direction="" id="mo2">Briyani</marquee>
+  <marquee behaviour="" direction="" id="mo">Briyani</marquee>
+
+  <script>
+    document.querySelectorAll('marquee').forEach(marquee => {
+      marquee.addEventListener('mouseover', () => {
+        marquee.stop();
+      });
+      marquee.addEventListener('mouseout', () => {
+        marquee.start();
+      });
+    });
+  </script>
+</body>
+</html>

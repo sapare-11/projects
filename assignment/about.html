@@ -1,0 +1,152 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - College Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .timeline {
+      position: relative;
+      margin-left: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: #6c757d;
+    }
+    .timeline-item {
+      margin-bottom: 30px;
+      padding-left: 30px;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">College Events</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="myevents.html">My Events</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- About Section -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">About Our College Events</h2>
+  <p class="text-center">Our college takes pride in organizing inclusive and vibrant events that celebrate innovation, creativity, and talent. With a tradition of excellence, each year brings new excitement and bigger achievements.</p>
+
+  <!-- Timeline -->
+  <h4 class="mt-5">Event Timeline</h4>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h5>2023</h5>
+      <p>Introduced inter-departmental coding contests and expanded sports events across departments.</p>
+    </div>
+    <div class="timeline-item">
+      <h5>2024</h5>
+      <p>Launched cultural night with celebrity performances and hosted our largest hackathon yet.</p>
+    </div>
+    <div class="timeline-item">
+      <h5>2025</h5>
+      <p>Added new workshops and collaborations with international universities and companies.</p>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  <h4 class="mt-5">Organizing Committee</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member">
+        <div class="card-body">
+          <h5 class="card-title">Dr. A. Sharma</h5>
+          <p class="card-text">Head Coordinator</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member">
+        <div class="card-body">
+          <h5 class="card-title">Ms. R. Iyer</h5>
+          <p class="card-text">Event Manager</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member">
+        <div class="card-body">
+          <h5 class="card-title">Mr. K. Patel</h5>
+          <p class="card-text">Tech Lead</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <h4 class="mt-5 text-center">Event Stats</h4>
+  <div class="stats">
+    <div>
+      <h3 id="count-events">0</h3>
+      <p>Events</p>
+    </div>
+    <div>
+      <h3 id="count-participants">0</h3>
+      <p>Participants</p>
+    </div>
+    <div>
+      <h3 id="count-volunteers">0</h3>
+      <p>Volunteers</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Stats Counter Animation
+  function animateCounter(id, end, duration) {
+    let start = 0;
+    const increment = end / (duration / 10);
+    const counter = document.getElementById(id);
+    const interval = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        counter.textContent = end;
+        clearInterval(interval);
+      } else {
+        counter.textContent = Math.ceil(start);
+      }
+    }, 10);
+  }
+
+  animateCounter("count-events", 35, 1000);
+  animateCounter("count-participants", 1200, 1000);
+  animateCounter("count-volunteers", 85, 1000);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

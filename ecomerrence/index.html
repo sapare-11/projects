@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color:none;
+            color: rgb(1, 5, 9);
+        }
+        #bgvideo{
+            position:fixed;
+            right:0;
+            bottom: 0;
+            min-width:100vw;
+            min-height:100vh;
+            object-fit:cover;
+            z-index:-2;
+            
+        }
+        header{
+            background-color: rgb(13, 188, 34);
+            color: rgb(17, 17, 3);
+            padding: 20px;
+            text-align: center;
+        }
+        header a{
+            color: rgb(176, 219, 205);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header a:hover{
+            color:aliceblue
+            backgroundcolor
+        
+        }
+        .menu-section{
+            padding: 40px 20px;
+        }
+        .menu-section h2{
+            font-size: 30px;
+            margin: 20px 0;
+            display: inline;
+        }
+        .menu-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(20px, 1fr));
+            grid-template-rows: repeat(auto-fit,minmax(20px,2fr));
+            gap: 20px;
+            margin-top: 20px;
+        
+        
+        }
+        .menu-item{
+            background: white;
+            border: 2px solid purple;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,1);
+            transition:transform 0.2 ease;
+        }
+        .menu-item img{
+            width:50%;
+            height:auto;
+            border-radius:10px
+        }
+        footer{
+            background-color: rgb(27, 159, 159);
+            text-align:center;
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce</title>
+</head>
+<body>
+    <video autoplay muted loop id="bgvideo">
+        <source src="backgroundvideo.mp4" type="video/mp4">
+        
+   </video>
+    <header>
+
+        <h1>Welcome to Dmart</h1>
+        <p>All your needs at one stop!</p>
+        <nav>
+            <a href="">Items</a>
+            <a href="">Contact</a>
+            <a href="">Services</a>
+        </nav>
+    </header>
+    <div class="menu-section">
+        <h2>Grocery</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.JP8tKSTCmI4iQBsELj4lEAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+                <h3>Atta</h3>
+                <p>100% Quality</p>
+                <span>$6</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.PtTPWy9XBiPrKeKu67zG0gHaHa?pid=Api&P=0&h=180">
+                <h3>Detergent</h3>
+                <p>powerfull Stain Removel</p>
+                <span>$6</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.dEYq0S52R7hqaB-S8_uLzwHaHa?pid=Api&P=0&h=180">
+                                <h3>MoongnDal</h3>
+                <p>Haldirams Moongdal Salty Fried Split Mung Bean Snack</p>
+                <span>$8</span>
+            </div>
+            
+        </div>
+        <h2>Milk products</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                 <img src="https://homecookbasics.com/wp-content/uploads/2023/04/how-to-tell-if-tofu-is-bad-1-500x500.jpg">
+                <h3>Paneer</h3>
+                <p>Organic paneer</p>
+                <span>$2</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/originals/1e/ed/10/1eed10a1a4f4127ead87cb19a0a8a41c.jpg">
+                <h3>Cakes</h3>
+                <p>strabbery flavour</p>
+                <span>$8</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://pbs.twimg.com/media/EED1LG2WwAAknaA.jpg">
+                <h3>Cheese</h3>
+                <p>Very testy cheese</p>
+                <span>$5</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://tse2.mm.bing.net/th/id/OIF.aQzdc6amUNKt92IXdpMwwg?pid=Api&P=0&h=180">
+                <h3>Yugrt</h3>
+                <p>fresh organic testy yugrt</p>
+                <span>$5</span>
+            </div>
+
+        </div>
+        <footer>
+            <p>&copy ; 2025 D-Mart Shopping | More</p>
+            <p>follow us on <a href="www.Dmart.com"></a></p>
+        </footer>
+    </div>
+</body>
+</html>

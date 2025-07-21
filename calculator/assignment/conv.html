@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unit Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background-color: bisque;
+    }
+    select, input {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    h2{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Unit Converter </h2>
+
+  <label for="category">Category:</label>
+  <select id="category" onchange="populateUnits()">
+    <option value="area">Area</option>
+    <option value="distance">Distance</option>
+    <option value="temperature">Temperature</option>
+    <option value="currency">Currency</option> <!-- Added -->
+  </select>
+
+  <label for="fromUnit">From:</label>
+  <select id="fromUnit"></select>
+
+  <label for="toUnit">To:</label>
+  <select id="toUnit"></select>
+
+  <label for="inputValue">Value:</label>
+  <input type="number" id="inputValue" oninput="convert()">
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const units = {
+      area: ["square meters", "square kilometers", "acres", "hectares"],
+      distance: ["meters", "kilometers", "miles", "feet"],
+      temperature: ["Celsius", "Fahrenheit", "Kelvin"],
+      currency: ["USD", "EUR", "GBP", "INR", "JPY"] // Added
+    };
+
+    const conversionFunctions = {
+      area: (value, from, to) => {
+        const factors = {
+          "square meters": 1,
+          "square kilometers": 1e6,
+          "acres": 4046.86,
+          "hectares": 10000
+        };
+        return value * (factors[from] / factors[to]);
+      },
+
+      distance: (value, from, to) => {
+        const factors = {
+          "meters": 1,
+          "kilometers": 1000,
+          "miles": 1609.34,
+          "feet": 0.3048
+        };
+        return value * (factors[from] / factors[to]);
+      },
+
+      temperature: (value, from, to) => {
+        let celsius;
+        if (from === "Celsius") celsius = value;
+        else if (from === "Fahrenheit") celsius = (value - 32) * 5 / 9;
+        else if (from === "Kelvin") celsius = value - 273.15;
+
+        if (to === "Celsius") return celsius;
+        else if (to === "Fahrenheit") return celsius * 9 / 5 + 32;
+        else if (to === "Kelvin") return celsius + 273.15;
+      },
+
+      currency: (value, from, to) => {
+        const ratesToUSD = {
+          USD: 1,
+          EUR: 0.85,
+          GBP: 0.75,
+          INR: 83,
+          JPY: 140
+        };
+        const usd = value / ratesToUSD[from];
+        return usd * ratesToUSD[to];
+      }
+    };
+
+    function populateUnits() {
+      const category = document.getElementById("category").value;
+      const fromUnit = document.getElementById("fromUnit");
+      const toUnit = document.getElementById("toUnit");
+
+      fromUnit.innerHTML = "";
+      toUnit.innerHTML = "";
+
+      units[category].forEach(unit => {
+        const option1 = new Option(unit, unit);
+        const option2 = new Option(unit, unit);
+        fromUnit.add(option1);
+        toUnit.add(option2);
+      });
+
+      convert(); // Recalculate on change
+    }
+
+    function convert() {
+      const category = document.getElementById("category").value;
+      const from = document.getElementById("fromUnit").value;
+      const to = document.getElementById("toUnit").value;
+      const value = parseFloat(document.getElementById("inputValue").value);
+
+      if (isNaN(value)) {
+        document.getElementById("result").textContent = "";
+        return;
+      }
+
+      const result = conversionFunctions[category](value, from, to);
+      document.getElementById("result").textContent = `${value} ${from} = ${result.toFixed(4)} ${to}`;
+    }
+
+    window.onload = populateUnits;
+  </script>
+</body>
+</html>

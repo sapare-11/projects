@@ -1,0 +1,115 @@
+<!-- myevents.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: contain;
+      background-color: #fff;
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      border: none;
+    }
+    .btn-danger:hover {
+      background-color: #b52a38;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">College Events</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+        <li class="nav-item"><a class="nav-link active" href="myevents.html">My Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="mb-4">My Registered Events</h2>
+  <div class="row" id="registeredEvents">
+    <!-- JavaScript will insert cards here -->
+  </div>
+</div>
+
+<script>
+  // Dummy registered events
+  const myRegisteredEvents = [
+    {
+      name: "Code Clash",
+      date: "2025-08-01",
+      venue: "Auditorium",
+      image: "https://www.codingame.com/blog/wp-content/uploads/2015/09/clash_of_code_logo_art.jpg"
+    },
+    {
+      name: "Cultural Fiesta",
+      date: "2025-08-05",
+      venue: "Open Grounds",
+      image: "https://i.ytimg.com/vi/W2g2wr7WXTk/maxresdefault.jpg"
+    }
+  ];
+
+  const container = document.getElementById("registeredEvents");
+
+  function renderEvents() {
+    container.innerHTML = "";
+
+    if (myRegisteredEvents.length === 0) {
+      container.innerHTML = '<p class="text-center">You have not registered for any events.</p>';
+      return;
+    }
+
+    myRegisteredEvents.forEach((event, index) => {
+      const col = document.createElement("div");
+      col.className = "col-md-4 mb-4";
+      col.innerHTML = `
+        <div class="card h-100">
+          <img src="${event.image}" class="card-img-top" alt="${event.name}">
+          <div class="card-body">
+            <h5 class="card-title">${event.name}</h5>
+            <p class="card-text"><strong>Date:</strong> ${event.date}</p>
+            <p class="card-text"><strong>Venue:</strong> ${event.venue}</p>
+            <button class="btn btn-danger" onclick="cancelEvent(${index})">Cancel</button>
+          </div>
+        </div>`;
+      container.appendChild(col);
+    });
+  }
+
+  function cancelEvent(index) {
+    myRegisteredEvents.splice(index, 1);
+    renderEvents();
+  }
+
+  renderEvents();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
